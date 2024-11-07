@@ -1,8 +1,4 @@
-import { Currency } from "../types";
+import { z } from 'zod'
+import { currencySchema } from '../schema/crypto-schema'
 
-export const currencies : Currency[] = [
-  { code: 'USD', name: 'Dolar de Estados Unidos'},
-  { code: 'MXN', name: 'Peso Mexicano'},
-  { code: 'EUR', name: 'Euro'},
-  { code: 'GBP', name: 'Libra Esterlina'},
-]
+export type Currency = z.infer<typeof currencySchema>
