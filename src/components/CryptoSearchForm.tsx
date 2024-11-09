@@ -28,7 +28,7 @@ export default function CryptoSearchForm() {
             setError('Todos los campos son obligatorios')
             return 
         }
-        setError('')
+        setError("")
 
         fetchData(pair)
     }

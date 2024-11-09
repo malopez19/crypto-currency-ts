@@ -1,4 +1,4 @@
-import { useMemo } from "react"
+import { useCallback } from "react"
 import { useCrytoStore } from "../store"
 import Spinner from "./Spinner"
 
@@ -6,11 +6,11 @@ export default function CryptoPriceDisplay() {
 
     const result = useCrytoStore((state) => state.result)
     const loading = useCrytoStore((state) => state.loading)
-    const hasResult = useMemo(() => !Object.values(result).includes(''), [result])
+    const hasResult = useCallback(() => !Object.values(result).includes('') , [result])
 
     return (
         <div className="result-wrapper">
-            {loading ? <Spinner /> : hasResult && (
+            {loading ? <Spinner /> : hasResult() && (
                 <>
                     <h2>Cotizacion</h2>
                     <div className="result">
