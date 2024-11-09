@@ -7,6 +7,8 @@ import ErrorMessage from './ErrorMessage'
 export default function CryptoSearchForm() {
 
     const cryptocurrencies = useCrytoStore((state) => state.cryptocurrencies)
+    const fetchData = useCrytoStore((state) => state.fetchData)
+
     const [pair, setPair] = useState<Pair>({
         currency: '',
         cryptocurrency: ''
@@ -27,9 +29,8 @@ export default function CryptoSearchForm() {
             return 
         }
         setError('')
-        //consultar API
 
-
+        fetchData(pair)
     }
 
     return (
