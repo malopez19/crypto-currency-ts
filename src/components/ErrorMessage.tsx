@@ -1,8 +1,9 @@
+import { ReactNode } from "react";
 
-export default function ErrorMessage({children}: React.ReactNode) {
+export default function ErrorMessage({children}: {children: ReactNode}) {
   return (
     <div>
-        {children}
+      {children}
     </div>
   )
 }
